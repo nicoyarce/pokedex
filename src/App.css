@@ -1,12 +1,73 @@
+.App {
+    text-align: center;
+}
+
+@font-face {
+    font-family: "PixelLCD7";
+    src: url("pixel-lcd-7.ttf");
+}
+
+html {
+    background: #355c7d; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #c06c84,
+        #6c5b7b,
+        #355c7d
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #c06c84,
+        #6c5b7b,
+        #355c7d
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100%;
+}
+
+@media screen and (max-width: 750px) {
+    .cuerpos {
+        flex-direction: column;
+    }
+    .medio {
+        display: none;
+    }
+    .tapa-izq {
+        margin-bottom: 1em;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    padding: 5%;
+}
+
+.emoji {
+    font-size: 2em;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+
+.texto-titulo {
+    color: black;
+    background-color: #52ae5f;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-family: "PixelLCD7";
+    font-size: 2em;
+}
+
 .pokedex {
     display: flex;
-    margin: 1em 1em;
     justify-content: center;
 }
 
 .cuerpos {
     display: flex;
-    margin: 1em 1em;
 }
 
 .tapa-izq,
@@ -18,7 +79,7 @@
 
 .bordes {
     display: flex;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
 }
 
 .tapa-izq {
@@ -27,32 +88,31 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: center;
-    border-radius: 0.5rem 0.5rem;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
+    border-radius: 0.5em 0.5em;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
     height: 500px;
 }
 
 .interior-tapa-der {
-    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-content: center;
-    border-top-right-radius: 1rem;
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 1em;
     height: 400px;
     align-self: flex-end;
 }
 
 .borde-izq {
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     height: 90px;
     width: 220px;
+    overflow: hidden;
     filter: drop-shadow(5px 5px 5px #00332d);
 }
 
@@ -70,17 +130,17 @@
 .borde-izq-chico {
     height: 50px;
     width: 130px;
-    border-top-right-radius: 0.5rem;
+    border-top-right-radius: 0.5em;
     background-color: #dc0a2d;
     filter: drop-shadow(6px 6px 3px #00332d);
 }
 
 .borde-der {
     position: relative;
-    overflow: hidden;
     height: 50px;
     width: 175px;
-    border-top-left-radius: 0.5rem;
+    overflow: hidden;
+    border-top-left-radius: 0.5em;
 }
 
 .borde-der:after {
@@ -103,7 +163,7 @@
     );
     height: 450px;
     width: 40px;
-    border-radius: 0.5rem 0.5em;
+    border-radius: 0.5em 0.5em;
     align-self: flex-end;
 }
 
@@ -118,62 +178,102 @@
     background-color: #dedede;
     justify-content: center;
     align-items: center;
-    border-bottom-left-radius: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    border-bottom-left-radius: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
     box-shadow: 1px 1px 5px #00332d;
 }
 
 .pantalla {
     background-color: #232323;
+    border-radius: 0.5em;
+    box-shadow: inset 0px 0px 3px 1px #2d678b;
 }
 
 .pantalla-grande {
+    display: flex;
     width: 200px;
     height: 170px;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    justify-content: center;
 }
 
 .pantalla-mediana {
+    display: flex;
     width: 300px;
-    height: 80px;
+    height: 120px;
+    justify-content: space-around;
+}
+
+.texto-pantalla-mediana {
+    font-family: "PixelLCD7", Arial;
+    font-size: 0.9em;
+    color: #28acff;
+    padding-left: 3%;
+    white-space: pre-line;
 }
 
 .pantalla-chica {
+    display: flex;
     width: 120px;
     height: 40px;
+    justify-content: space-around;
 }
 
 .grupo-botones-izq {
     display: flex;
     margin: 2em 2em;
+    align-items: center;
 }
 
 .mini-pantalla {
+    display: flex;
     background-color: #52ae5f;
-    width: 100px;
+    width: 150px;
     height: 50px;
     margin: auto;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px 0px 9px 1px #00332d;
+}
+
+.texto-mini-pantalla {
+    font-family: "PixelLCD7", Arial;
+    font-size: 1em;
+    color: black;
+    text-align: center;
+    background-color: transparent;
+    border-style: hidden;
+    width: 140px;
+    height: 40px;
 }
 
 .cruceta {
-    background-color: #00332d;
+    display: flex;
+}
+
+.cruceta-vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 25px;
     height: 75px;
-    margin: auto;
-    position: relative;
-    box-shadow: 1px 1px 5px black;
-}
-.cruceta:after {
     background-color: #00332d;
-    content: "";
-    width: 75px;
+}
+
+.boton-cruceta {
     height: 25px;
-    position: absolute;
-    left: -25px;
-    top: 25px;
-    box-shadow: 4px 4px 8px #00332d;
+    width: 25px;
+    background-color: #00332d;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    color: transparent;
+}
+
+.boton-cruceta-horizontal {
+    align-self: center;
 }
 
 .luz-circulo {
@@ -183,7 +283,7 @@
     z-index: 2;
     box-shadow: 2px 2px 5px #00332d;
     align-self: flex-start;
-    margin-top: 1rem;
+    margin-top: 1em;
 }
 
 .boton-circulo {
@@ -193,12 +293,16 @@
 }
 
 .circulo-izq {
+    display: flex;
     background-color: #00332d;
     box-shadow: 1px 1px 5px #00332d;
+    justify-content: center;
+    align-items: center;
 }
 
 .circulo-amarillo {
     background-color: #ccb72c;
+    box-shadow: 1px 1px 5px #00332d;
 }
 
 .circulo-rojo {
@@ -228,9 +332,8 @@
 
 .boton-azul {
     background-color: #28acff;
-    height: 49px;
-    width: 49px;
-    border: #1f3247 1px solid;
+    height: 51px;
+    width: 51px;
     box-shadow: 1px 1px 5px #00332d;
 }
 
@@ -238,7 +341,6 @@
     background-color: #dedede;
     height: 39px;
     width: 59px;
-    border: #00332d 1px solid;
     box-shadow: 1px 1px 5px #00332d;
 }
 
