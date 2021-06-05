@@ -27,14 +27,16 @@ html {
     .medio {
         display: none;
     }
-    .tapa-izq {
-        margin-bottom: 1em;
-    }
+    .tapa-izq,
     .tapa-der {
         margin-bottom: 2em;
+        width: 100%;
     }
     .navbar a {
         font-size: 0.8em;
+    }
+    .navbar {
+        width: 90%;
     }
 }
 
@@ -52,6 +54,7 @@ img {
     display: flex;
     justify-content: center;
     margin: 2%;
+    text-align: center;
 }
 
 .texto-titulo {
@@ -369,7 +372,6 @@ img {
     overflow: hidden;
     position: fixed;
     bottom: 0;
-    width: 100%;
     margin-left: 0.5em;
 }
 
@@ -378,8 +380,7 @@ img {
     float: left;
     display: block;
     color: #f2f2f2;
-
-    padding: 14px 16px;
+    padding: 10px 16px;
     text-decoration: none;
     font-size: 0.9em;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
