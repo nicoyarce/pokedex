@@ -7,7 +7,7 @@ const PantallaPrincipal = ({ pokemon }) => {
                 src={
                     sprites || pokemon == null
                         ? sprites.other["official-artwork"].front_default
-                        : "../Iconos/signo_pregunta.png"
+                        : `${process.env.PUBLIC_URL}/Iconos/signo_pregunta.png`
                 }
                 alt={name}
             ></img>

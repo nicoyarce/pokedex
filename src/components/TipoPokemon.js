@@ -4,7 +4,7 @@ const TipoPokemon = ({ pokemon, slot }) => {
         const tipoPokemon = types?.filter((tipos) => tipos.slot === slot);
         const stringTipo = tipoPokemon[0]?.type?.name;
         if (stringTipo !== undefined) {
-            const rutaImagen = `../Iconos/Tipos/${stringTipo}.gif`;
+            const rutaImagen = `${process.env.PUBLIC_URL}/Iconos/Tipos/${stringTipo}.gif`;
             return (
                 <div className="pantalla pantalla-chica">
                     <img src={rutaImagen} alt={stringTipo}></img>
@@ -13,12 +13,14 @@ const TipoPokemon = ({ pokemon, slot }) => {
         } else {
             return <div className="pantalla pantalla-chica"></div>;
         }
-    } else
+    } else {
+        const rutaImagen = `${process.env.PUBLIC_URL}/Iconos/Tipos/unknown.gif`;
         return (
             <div className="pantalla pantalla-chica">
-                <img src="../Iconos/Tipos/unknown.gif" alt="unknown"></img>
+                <img src={rutaImagen} alt="unknown"></img>
             </div>
         );
+    }
 };
 
 export default TipoPokemon;

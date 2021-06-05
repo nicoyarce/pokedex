@@ -113,7 +113,7 @@ const Pokedex = () => {
             datosExtraPoke.flavor_text_entries
         )}`;
         if (string !== ",") {
-            const url = `http://api.voicerss.org/?key=${process.env.REACT_APP_VOICE_API_KEY}&f=11khz_16bit_stereo&b64=true&c=MP3&hl=es-es&src=${string}`;
+            const url = `https://api.voicerss.org/?key=${process.env.REACT_APP_VOICE_API_KEY}&f=11khz_16bit_stereo&b64=true&c=MP3&hl=es-es&src=${string}`;
             axios.get(url).then(function (response) {
                 const audio = new Audio(response.data);
                 audio.play();
