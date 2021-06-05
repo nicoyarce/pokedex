@@ -1,7 +1,3 @@
-.App {
-    text-align: center;
-}
-
 @font-face {
     font-family: "PixelLCD7";
     src: url("pixel-lcd-7.ttf");
@@ -24,7 +20,7 @@ html {
     height: 100%;
 }
 
-@media screen and (max-width: 750px) {
+@media (max-width: 750px) {
     .cuerpos {
         flex-direction: column;
     }
@@ -33,6 +29,12 @@ html {
     }
     .tapa-izq {
         margin-bottom: 1em;
+    }
+    .tapa-der {
+        margin-bottom: 2em;
+    }
+    .navbar a {
+        font-size: 0.8em;
     }
 }
 
@@ -359,4 +361,33 @@ img {
     display: flex;
     justify-content: space-between;
     align-content: space-between;
+}
+
+/* Place the navbar at the bottom of the page, and make it stick */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-left: 0.5em;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Change the color of links on hover */
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
 }
