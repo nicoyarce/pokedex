@@ -1,14 +1,16 @@
 import "./App.css";
-import { Fragment } from "react";
 import Pokedex from "./components/Pokedex";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
     return (
-        <Fragment>
+        <ErrorBoundary>
             <div className="titulo">
                 <div className="texto-titulo">Pokedex de Nicoyarce</div>
             </div>
-            <Pokedex></Pokedex>
+            <div className="pokedex-wrapper">
+                <Pokedex />
+            </div>
             <div className="navbar">
                 <a
                     href="https://nicoyarce.github.io/me/"
@@ -17,15 +19,8 @@ function App() {
                 >
                     Creado por Nicoyarce
                 </a>
-                <a
-                    href="https://trello.com/b/a9n6v5QE/pokedex"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Trello - ToDo
-                </a>
             </div>
-        </Fragment>
+        </ErrorBoundary>
     );
 }
 
