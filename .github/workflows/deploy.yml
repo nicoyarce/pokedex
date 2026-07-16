@@ -39,6 +39,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
+        env:
+          VITE_VOICE_API_KEY: ${{ secrets.VITE_VOICE_API_KEY }}
+          VITE_VOICE_LANGUAGE: ${{ vars.VITE_VOICE_LANGUAGE || 'es-mx' }}
         run: pnpm build
 
       - name: Setup Pages
