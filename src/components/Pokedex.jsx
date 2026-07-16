@@ -7,6 +7,7 @@ import TipoPokemon from "./TipoPokemon";
 import Tooltip from "./Tooltip";
 import ModalBienvenida from "./ModalBienvenida";
 import BotonAyuda from "./BotonAyuda";
+import { resolveVoiceApiKey, resolveVoiceLanguage, buildVoiceRssAudioUrl, getAudioSourceFromVoiceRssResponse } from "../utils/tts";
 
 // Función helper para construir la cadena de evoluciones
 const construirCadenaEvolucion = (chain) => {
@@ -160,20 +161,31 @@ const Pokedex = () => {
         const esDesc = datos?.flavor_text_entries?.find(e => e.language.name === "es");
         const descText = limpiaDescripcion(esDesc?.flavor_text || "");
 
-        if (!name && !descText) return;
+        const texto = [name, descText].filter(Boolean).join(", ");
+        if (!texto.trim()) return;
 
-        const apiKey = import.meta.env.VITE_VOICE_API_KEY;
+        const apiKey = resolveVoiceApiKey(import.meta.env);
         if (!apiKey) {
             console.warn("Voice API key no configurada");
             return;
         }
 
-        const url = `https://api.voicerss.org/?key=${apiKey}&b64=true&c=MP3&hl=es-mx&src=${encodeURIComponent(`${name},${descText}`)}`;
+        const language = resolveVoiceLanguage(import.meta.env);
+        const url = buildVoiceRssAudioUrl({ apiKey, text: texto, language });
+        if (!url) return;
 
         axios.get(url).then((response) => {
-            const audio = new Audio(response.data);
+            const audioSource = getAudioSourceFromVoiceRssResponse(response.data);
+            if (!audioSource) {
+                console.warn("No se recibió audio válido de VoiceRSS");
+                return;
+            }
+
+            const audio = new Audio(audioSource);
             audio.play().catch(() => { });
-        }).catch(() => { });
+        }).catch((error) => {
+            console.error("Error al reproducir audio:", error);
+        });
     }, [limpiaDescripcion]);
 
     const toggleShiny = useCallback(() => {

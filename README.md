@@ -15,6 +15,13 @@ Aplicación web tipo Pokédex desarrollada con React y Vite, con interfaz inspir
 - Node.js 18 o superior
 - pnpm 9 o superior
 
+## Variables de entorno
+
+Copia [.env.example](.env.example) a .env y define:
+
+- VITE_VOICE_API_KEY: clave de VoiceRSS
+- VITE_VOICE_LANGUAGE: idioma para el TTS, por ejemplo es-mx o en-us
+
 ## Instalación
 
 ```bash
